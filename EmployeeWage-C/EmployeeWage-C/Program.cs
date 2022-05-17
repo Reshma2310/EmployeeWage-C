@@ -5,3 +5,4 @@ EmployeeWage_C.EmployeeAttendance attendance = new EmployeeWage_C.EmployeeAttend
 attendance.AttendanceCheck();
 attendance.DailyWage();
 attendance.PartTimeWage();
+attendance.WorkHoursWage();
