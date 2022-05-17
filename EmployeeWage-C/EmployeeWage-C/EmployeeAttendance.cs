@@ -8,7 +8,7 @@ namespace EmployeeWage_C
 {
     internal class EmployeeAttendance
     {
-        int fullTimeHours = 8, partTimeHours = 4, perHourWage = 20;
+        int fullTimeHours = 8, partTimeHours = 4, perHourWage = 20, workingDays = 0, maxWorkingHours = 100, totalWorkingDays=20;
         int dailyWage,partTimeWage,empWorkHours;
 
         Random random = new Random();
@@ -36,8 +36,9 @@ namespace EmployeeWage_C
         }
         public void WorkHoursWage()
         {
-            for (int i = 0; i < 20; i++)
+            while(empWorkHours <= maxWorkingHours && workingDays <= totalWorkingDays)
             {
+                workingDays++;
                 int employee = random.Next(0, 3);
                 switch (employee)
                 {
@@ -53,7 +54,7 @@ namespace EmployeeWage_C
                 }
             }
             int empWage = empWorkHours * perHourWage;
-            Console.WriteLine("Employee wage is {0} for total working hours {1}", empWage, empWorkHours);
+            Console.WriteLine("Employee wage is {0} for {1} Days with total working hours {2}", empWage,workingDays - 1, empWorkHours);
         }
     }
 }
