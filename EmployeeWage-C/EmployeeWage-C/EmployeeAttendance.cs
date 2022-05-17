@@ -9,7 +9,7 @@ namespace EmployeeWage_C
     internal class EmployeeAttendance
     {
         int fullTimeHours = 8, partTimeHours = 4, perHourWage = 20;
-        int dailyWage;
+        int dailyWage,partTimeWage;
         Random random = new Random();
         public void AttendanceCheck()
         {
@@ -26,6 +26,11 @@ namespace EmployeeWage_C
         {
             dailyWage = fullTimeHours * perHourWage;
             Console.WriteLine("Daily Wage of Full Time Employee is " + dailyWage);
+        }
+        public void PartTimeWage()
+        {
+            partTimeWage = partTimeHours * perHourWage;
+            Console.WriteLine("Daily Wage of Part Time Employee is " + partTimeWage);
         }
     }
 }
