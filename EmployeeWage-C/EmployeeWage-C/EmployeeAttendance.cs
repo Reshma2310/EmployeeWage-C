@@ -36,15 +36,21 @@ namespace EmployeeWage_C
         }
         public void WorkHoursWage()
         {
-            int employee = random.Next(0, 3);
-            switch (employee)
+            for (int i = 0; i < 20; i++)
             {
-                case isFullTime: empWorkHours = 8;
-                    break;
-                case isPartTime: empWorkHours = 4;
-                    break;
-                    default: empWorkHours = 0;
-                    break;
+                int employee = random.Next(0, 3);
+                switch (employee)
+                {
+                    case isFullTime:
+                        empWorkHours += 8;
+                        break;
+                    case isPartTime:
+                        empWorkHours += 4;
+                        break;
+                    default:
+                        empWorkHours += 0;
+                        break;
+                }
             }
             int empWage = empWorkHours * perHourWage;
             Console.WriteLine("Employee wage is {0} for total working hours {1}", empWage, empWorkHours);
