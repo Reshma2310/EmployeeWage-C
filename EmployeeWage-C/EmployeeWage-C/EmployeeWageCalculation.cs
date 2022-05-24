@@ -6,55 +6,43 @@ using System.Threading.Tasks;
 
 namespace EmployeeWage_C
 {
-    internal class EmployeeWageCalculation
+    internal class EmployeeAttendance
     {
-        int fullTimeHours = 8, partTimeHours = 4, perHourWage = 20, workingDays = 0, maxWorkingHours = 100, totalWorkingDays = 20;
-        int dailyWage, partTimeWage, empWorkHours;
-
+        public const int isFullTime = 1, isPartTime = 2;
+        int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
         Random random = new Random();
-        const int isFullTime = 1, isPartTime = 2;
-        public void AttendanceCheck()
+
+        public void EmployeeWages()
         {
-            if (random.Next(0, 2) == 0)
+            Console.WriteLine("Enter Company Name");
+            string company = Console.ReadLine();
+            Console.WriteLine("Enter Employee Wage per Hour");
+            int empRatePerHour = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Number of Working Days of {0} Company", company);
+            int numOfWorkingDays = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter Maximum Working Hours of {0} Company", company);
+            int maxHoursPerMonth = Convert.ToInt32(Console.ReadLine());
+            while (totalEmpHrs <= maxHoursPerMonth && totalWorkingDays < numOfWorkingDays)
             {
-                Console.WriteLine("Employee is absent");
-            }
-            else
-            {
-                Console.WriteLine("Employee is present");
-            }
-        }
-        public void DailyWage()
-        {
-            dailyWage = fullTimeHours * perHourWage;
-            Console.WriteLine("Daily Wage of Full Time Employee is " + dailyWage);
-        }
-        public void PartTimeWage()
-        {
-            partTimeWage = partTimeHours * perHourWage;
-            Console.WriteLine("Daily Wage of Part Time Employee is " + partTimeWage);
-        }
-        public void WorkHoursWage()
-        {
-            while (empWorkHours <= maxWorkingHours && workingDays <= totalWorkingDays)
-            {
-                workingDays++;
-                int employee = random.Next(0, 3);
-                switch (employee)
+                totalWorkingDays++;
+                int empCheck = random.Next(0, 3);
+                switch (empCheck)
                 {
-                    case isFullTime:
-                        empWorkHours += 8;
-                        break;
                     case isPartTime:
-                        empWorkHours += 4;
+                        empHrs = 4;
+                        break;
+                    case isFullTime:
+                        empHrs = 8;
                         break;
                     default:
-                        empWorkHours += 0;
+                        empHrs = 0;
                         break;
                 }
+                totalEmpHrs += empHrs;
+                Console.WriteLine("Day {0} Working Hours are {1}", totalWorkingDays, empHrs);
             }
-            int empWage = empWorkHours * perHourWage;
-            Console.WriteLine("Employee wage is {0} for {1} Days with total working hours {2}", empWage, workingDays - 1, empWorkHours);
+            int totalEmpWage = totalEmpHrs * empRatePerHour;
+            Console.WriteLine("Total Employee wage for Company {0} is {1}", company, totalEmpWage);
         }
     }
 }
