@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeWage_C
 {
-    internal class EmployeeAttendance
+    internal class EmployeeWageCalculation
     {
         public const int isFullTime = 1, isPartTime = 2;
         int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
