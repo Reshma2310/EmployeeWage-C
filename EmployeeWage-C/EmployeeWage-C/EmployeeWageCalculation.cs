@@ -53,7 +53,6 @@ namespace EmployeeWage_C
             int totalWage = totalEmpHrs* empWage.empRatePerHour;
             Console.WriteLine("Total Employee Wage of company {0} is {1} ", empWage.company, totalWage);
             return totalWage;
-        }
-
+        }          
     }
 }

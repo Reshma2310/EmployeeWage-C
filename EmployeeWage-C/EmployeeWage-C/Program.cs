@@ -3,13 +3,8 @@
     internal class Program
     {
         static void Main(string[] args)
-        {
-            /*Console.WriteLine("Welcome to Employee Wage Program");
-            EmployeeWageCalculation empWageBuilder = new EmployeeWageCalculation();
-            empWageBuilder.AddCompanyEmpWage("DMart", 20, 6, 100);
-            empWageBuilder.AddCompanyEmpWage("Reliance", 18, 12, 120);
-            empWageBuilder.ComputeEmpWage();*/
-            Console.WriteLine("Enter number of companies for which wages have to be calculated:");
+        {            
+            Console.WriteLine("Enter number of companies to calculate wages");
             int noOfCompanies = Convert.ToInt32(Console.ReadLine());
             EmployeeWage_C.EmployeeWageCalculation employeeWage = new EmployeeWage_C.EmployeeWageCalculation(noOfCompanies);
 
